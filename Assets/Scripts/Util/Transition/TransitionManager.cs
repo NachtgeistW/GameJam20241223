@@ -64,13 +64,13 @@ namespace Transition
         /// <returns></returns>
         private IEnumerator Transition(string sceneName)
         {
-            EventCenter.Broadcast(new BeforeSceneLoadedEvent());
+            //EventCenter.Broadcast(new BeforeSceneLoadedEvent());
             yield return Fade(1);
             yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
 
             yield return LoadSceneAndActivate(sceneName);
             //EventHandler.CallMoveToPositionEvent(targetPos);
-            EventCenter.Broadcast(new AfterSceneLoadedEvent());
+            //EventCenter.Broadcast(new AfterSceneLoadedEvent());
             yield return Fade(0);
         }
 
@@ -83,8 +83,6 @@ namespace Transition
         {
             isFade = true;
             fadeCanvasGroup.blocksRaycasts = true;
-            
-            
             
             //TODO: replace with DOTween
             var speed = Mathf.Abs(fadeCanvasGroup.alpha - targetAlpha) / Settings.SceneFadeDuration;
