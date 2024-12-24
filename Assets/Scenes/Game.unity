@@ -266,8 +266,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 8
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -292,12 +292,69 @@ Transform:
   m_GameObject: {fileID: 1076819330}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -14.56}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1932074101
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3796832656193554116, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796832656193554116, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796832656193554116, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796832656193554116, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796832656193554116, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796832656193554116, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796832656193554116, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796832656193554116, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796832656193554116, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796832656193554116, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364493936832872020, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
+      propertyPath: m_Name
+      value: Student
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
 --- !u!1 &2098367036
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2098367037}
   - component: {fileID: 2098367038}
+  - component: {fileID: 2098367039}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -337,7 +395,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098367036}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a31eb3059680460bb27b66ef573e7ac4, type: 3}
   m_Name: 
@@ -345,6 +403,19 @@ MonoBehaviour:
   studentPrefab: {fileID: 8364493936832872020, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
   spawnPoint: {fileID: 2111265493}
   delay: 2
+--- !u!114 &2098367039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098367036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0089cf0905b644bf99e5881415fd0e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1076819332}
 --- !u!1 &2111265492
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,4 +454,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 1076819333}
   - {fileID: 2098367037}
+  - {fileID: 1932074101}
   - {fileID: 2111265493}
