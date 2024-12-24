@@ -120,7 +120,7 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1, y: 1.64}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!61 &1431218583824736324
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 1.02, y: 1.5411602}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.81, z: 0, w: 0.71999997}
     pivot: {x: 0, y: 0}
     oldSize: {x: 1.92, y: 2.68}
     newSize: {x: 1.92, y: 0.63}
@@ -516,6 +516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3796832656193554116}
   - component: {fileID: 2429213417197993024}
+  - component: {fileID: 1832643829431920591}
   m_Layer: 0
   m_Name: Student
   m_TagString: Untagged
@@ -555,6 +556,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   studentTransform: {fileID: 3796832656193554116}
   speed: 5
+--- !u!114 &1832643829431920591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364493936832872020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 067f475b673c43e28c06295acd47023f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  studentTransform: {fileID: 3796832656193554116}
 --- !u!1 &9028643517934604140
 GameObject:
   m_ObjectHideFlags: 0
