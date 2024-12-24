@@ -20,7 +20,7 @@ namespace Game
         {
             while (true)
             {
-                Instantiate(studentPrefab, spawnPoint.position, spawnPoint.rotation);
+                Instantiate(studentPrefab, spawnPoint);
                 yield return new WaitForSeconds(delay);
             }
         }
