@@ -36,16 +36,27 @@ namespace Game
                 var mousePos = Input.mousePosition;
                 mousePos.z = Mathf.Abs(cam.transform.position.z);
                 endCutPoint = cam.ScreenToWorldPoint(mousePos);
-                CheckHairCut();
+                CheckCutting();
             }
             
             DrawLine4Debug();
         }
 
-        private void CheckHairCut()
+        private void CheckCutting()
         {
             var cutDirection = endCutPoint - startCutPoint;
-            Debug.Log($"{startCutPoint}, {endCutPoint}, {cutDirection}");
+            //Debug.Log($"{startCutPoint}, {endCutPoint}, {cutDirection}");
+            
+            var hit = Physics2D.Raycast(startCutPoint, cutDirection.normalized, cutDirection.magnitude);
+            if (hit.collider)
+            {
+                Debug.Log(hit.collider.gameObject.name);
+                if (hit.collider.gameObject.CompareTag("Body"))
+                {
+                    Debug.Log("You cut the body!!!");
+                }
+            }
+            
         }
         
         private void DrawLine4Debug()
