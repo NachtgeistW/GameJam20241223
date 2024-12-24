@@ -22,7 +22,8 @@ namespace Game
 
         private void OnHairCut(HairCutEvent evt)
         {
-            SplitHair(evt.cutPosition, evt.hair);
+            if (originalHairTransform.gameObject.Equals(evt.hair.gameObject))
+                SplitHair(evt.cutPosition, evt.hair);
         }
 
         private void SplitHair(Vector2 cutPoint, GameObject hairObject)
