@@ -7,12 +7,6 @@ using Random = UnityEngine.Random;
 
 namespace Game
 {
-    public struct HairCutEvent : IEvent
-    {
-        public Vector2 cutPosition;
-        public GameObject hair;
-    }
-
     public class HairCutter : MonoBehaviour
     {
         private bool isMousePressed = false;
