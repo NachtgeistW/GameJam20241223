@@ -17,6 +17,7 @@ namespace Start
                 EventCenter.Broadcast(new TransitionEvent
                 {
                     SceneName = "Game",
+                    IsFadeEnable = true
                 })
             );
             
