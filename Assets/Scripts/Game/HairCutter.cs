@@ -1,5 +1,6 @@
 ﻿using System;
 using Plutono.Util;
+using Transition;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -65,7 +66,12 @@ namespace Game
 
                 if (hit.collider.CompareTag("Body"))
                 {
-                    Debug.Log("You cut the body!!!");
+                    Game.Instance.gameStatus = 2;
+                    EventCenter.Broadcast(new TransitionEvent
+                    {
+                        IsFadeEnable = false,
+                        SceneName = "Result"
+                    });
                 }
             }
         }

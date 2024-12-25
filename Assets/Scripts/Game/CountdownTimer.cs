@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using Plutono.Util;
+using Transition;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +24,16 @@ namespace Game
             if (!takingAway && secondsLeft > 0f)
             {
                 StartCoroutine(TimerTake());
+            }
+            
+            if (secondsLeft <= 0f)
+            {
+                Game.Instance.gameStatus = 1;
+                EventCenter.Broadcast(new TransitionEvent
+                {
+                    IsFadeEnable = false,
+                    SceneName = "Result"
+                });
             }
         }
 

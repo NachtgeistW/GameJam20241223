@@ -8,4 +8,13 @@ namespace Game
         public Vector2 cutPosition;
         public GameObject hair;
     }
+
+    public struct GameFailEvent : IEvent
+    {
+    }
+
+    public struct GameClearEvent : IEvent
+    {
+        
+    }
 }
