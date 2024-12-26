@@ -28,11 +28,14 @@ namespace Result
             }
             
             retryButton.onClick.AddListener(() =>
-                EventCenter.Broadcast(new TransitionEvent
                 {
-                    SceneName = "Game",
-                    IsFadeEnable = true
-                })
+                    EventCenter.Broadcast(new TransitionEvent
+                    {
+                        SceneName = "Game",
+                        IsFadeEnable = true
+                    });
+                    Game.Game.Instance.gameStatus = 0;
+                }
             );
         }
     }
