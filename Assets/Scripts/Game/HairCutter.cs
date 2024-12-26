@@ -14,7 +14,7 @@ namespace Game
 
         [SerializeField] private Camera cam;
 
-        private LineRenderer cutLine;
+        [SerializeField] private LineRenderer cutLine;
         private List<Vector2> linePoints = new();
         
         private void Start()
@@ -26,14 +26,19 @@ namespace Game
 
             void SetCutLine()
             {
-                cutLine = gameObject.AddComponent<LineRenderer>();
-                cutLine.startWidth = 0.1f;
-                cutLine.endWidth = 0.1f;
+                cutLine.startWidth = 0.2f;
+                cutLine.endWidth = 0.2f;
                 cutLine.positionCount = 2;
-                cutLine.sortingLayerName = "CutLine";
     
                 // Optional: Set line material and color
-                cutLine.material = new Material(Shader.Find("Sprites/Default"));
+                var lineTexture = Resources.Load<Texture2D>("CutLight");
+                var lineMaterial = new Material(Shader.Find("Sprites/Default"))
+                {
+                    mainTexture = lineTexture
+                };
+
+                // Apply material to line renderer
+                cutLine.material = lineMaterial;
                 cutLine.startColor = Color.white;
                 cutLine.endColor = Color.white;
             }
