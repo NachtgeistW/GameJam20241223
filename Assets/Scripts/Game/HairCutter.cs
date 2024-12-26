@@ -1,10 +1,8 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Plutono.Util;
 using Transition;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -16,9 +14,34 @@ namespace Game
 
         [SerializeField] private Camera cam;
 
+        [SerializeField] private LineRenderer cutLine;
+        private List<Vector2> linePoints = new();
+        
         private void Start()
         {
             cam = FindObjectOfType<Camera>();
+            
+            SetCutLine();
+            return;
+
+            void SetCutLine()
+            {
+                cutLine.startWidth = 0.2f;
+                cutLine.endWidth = 0.2f;
+                cutLine.positionCount = 2;
+    
+                // Optional: Set line material and color
+                var lineTexture = Resources.Load<Texture2D>("CutLight");
+                var lineMaterial = new Material(Shader.Find("Sprites/Default"))
+                {
+                    mainTexture = lineTexture
+                };
+
+                // Apply material to line renderer
+                cutLine.material = lineMaterial;
+                cutLine.startColor = Color.white;
+                cutLine.endColor = Color.white;
+            }
         }
 
         private void Update()
@@ -42,7 +65,7 @@ namespace Game
                 CheckCutting();
             }
 
-            DrawLine4Debug();
+            DrawLine();
         }
 
         private void CheckCutting()
@@ -76,6 +99,21 @@ namespace Game
             }
         }
 
+        private void DrawLine()
+        {
+            if (isMousePressed)
+            {
+                Vector2 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+                cutLine.SetPosition(0, startCutPoint);
+                cutLine.SetPosition(1, currentPoint);
+            }
+            else
+            {
+                cutLine.SetPosition(0, Vector2.zero);
+                cutLine.SetPosition(1, Vector2.zero);
+            }
+        }
+        
         private void DrawLine4Debug()
         {
             if (isMousePressed)

@@ -49,3 +49,6 @@ TagManager:
   - name: Hair
     uniqueID: 1872169617
     locked: 0
+  - name: CutLine
+    uniqueID: 3891536089
+    locked: 0
