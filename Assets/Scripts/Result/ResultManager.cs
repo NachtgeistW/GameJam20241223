@@ -12,6 +12,7 @@ namespace Result
         [SerializeField] private Text finalScoreText;
         
         [SerializeField] private Button retryButton;
+        [SerializeField] private Button exitButton;
 
         private void Start()
         {
@@ -28,12 +29,17 @@ namespace Result
             }
             
             retryButton.onClick.AddListener(() =>
-                EventCenter.Broadcast(new TransitionEvent
                 {
-                    SceneName = "Game",
-                    IsFadeEnable = true
-                })
+                    EventCenter.Broadcast(new TransitionEvent
+                    {
+                        SceneName = "Game",
+                        IsFadeEnable = true
+                    });
+                    Game.Game.Instance.gameStatus = 0;
+                }
             );
+            
+            exitButton.onClick.AddListener(Application.Quit);
         }
     }
 }
