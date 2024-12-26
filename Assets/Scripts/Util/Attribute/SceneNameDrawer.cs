@@ -2,11 +2,13 @@
 using UnityEditor;
 using Util.Attribute;
 
+#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(SceneNameAttribute))]
 public class SceneNameDrawer : PropertyDrawer
 {
     int sceneIndex = -1;
     GUIContent[] sceneNames;
+
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         if (EditorBuildSettings.scenes.Length == 0)
@@ -22,7 +24,7 @@ public class SceneNameDrawer : PropertyDrawer
             property.stringValue = sceneNames[sceneIndex].text;
     }
 
-    readonly string[] scenePathSplit = { "/", ".unity" };   //Delete the splash and .unity
+    readonly string[] scenePathSplit = { "/", ".unity" }; //Delete the splash and .unity
 
     private void GetSceneNameArray(SerializedProperty property)
     {
@@ -43,6 +45,7 @@ public class SceneNameDrawer : PropertyDrawer
             {
                 sceneName = "Deleted Scene";
             }
+
             sceneNames[i] = new GUIContent(sceneName);
         }
 
@@ -64,6 +67,7 @@ public class SceneNameDrawer : PropertyDrawer
                     break;
                 }
             }
+
             if (!isSceneNameFound)
                 sceneIndex = 0;
         }
@@ -75,3 +79,4 @@ public class SceneNameDrawer : PropertyDrawer
         property.stringValue = sceneNames[sceneIndex].text;
     }
 }
+#endif

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7723968446929325515}
   - component: {fileID: 8205817582830516559}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hair
   m_TagString: Hair
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6502256736477658255}
   - component: {fileID: 107199593544480338}
   - component: {fileID: 7424207183169314827}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hair
   m_TagString: Hair
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 6675472329915438273}
   - component: {fileID: 2002361122559319385}
   - component: {fileID: 3059799957242857756}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Body
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2395204176408001481}
   - component: {fileID: 6188136677490758937}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1134062007208180816}
   - component: {fileID: 1870409167024524574}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 3796832656193554116}
   - component: {fileID: 2429213417197993024}
   - component: {fileID: 1832643829431920591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Student
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   studentTransform: {fileID: 3796832656193554116}
-  speed: 5
+  speed: 3
 --- !u!114 &1832643829431920591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,7 +576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8759864445122818721}
   - component: {fileID: 591415160878667249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
