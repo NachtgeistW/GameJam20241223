@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   studentTransform: {fileID: 3796832656193554116}
-  speed: 5
+  speed: 3
 --- !u!114 &1832643829431920591
 MonoBehaviour:
   m_ObjectHideFlags: 0
