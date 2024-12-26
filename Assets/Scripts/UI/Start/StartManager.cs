@@ -15,7 +15,6 @@ namespace Start
         {
             startButton.onClick.AddListener(() =>
                 {
-                    Debug.Log("Start");
                     EventCenter.Broadcast(new TransitionEvent
                     {
                         SceneName = "Game",

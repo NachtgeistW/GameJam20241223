@@ -25,6 +25,7 @@ namespace Transition
         public string startSceneName = "Start";
 #endif
         [SerializeField] private CanvasGroup fadeCanvasGroup;
+
         private bool isFade;
 
         private void OnEnable()
