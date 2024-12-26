@@ -82,12 +82,13 @@ namespace Game
             SpriteRenderer originalRenderer = originalHairTransform.GetComponent<SpriteRenderer>();
             Vector2 originalPivot = originalRenderer.sprite.pivot;
             float pixelsPerUnit = originalRenderer.sprite.pixelsPerUnit;
-            
+
             // Create new sprite from texture
             var newSprite = Sprite.Create(
                 texture,
                 new Rect(0, 0, texture.width, texture.height),
-                new Vector2(originalPivot.x / texture.width, originalPivot.y / texture.height), // Use original pivot ratio
+                new Vector2(originalPivot.x / texture.width,
+                    originalPivot.y / texture.height), // Use original pivot ratio
                 pixelsPerUnit
             );
 
@@ -96,16 +97,20 @@ namespace Game
             // Match the original sprite's properties
             newPieceRenderer.sortingOrder = originalRenderer.sortingOrder;
             newPieceRenderer.sortingLayerID = originalRenderer.sortingLayerID;
-            
+
             newPiece.transform.rotation = transform.rotation;
             newPiece.transform.localScale = transform.localScale;
 
             if (isTop)
             {
-                newPiece.transform.position = transform.position;
+                newPiece.transform.position = new Vector3(transform.position.x + 1,
+                    transform.position.y + 3.3f,
+                    transform.position.z);
                 // Add some physics effects
                 var rb = newPiece.AddComponent<Rigidbody2D>();
-                rb.AddForce(new Vector2(Random.Range(-100f, 100f), Random.Range(-50f, 50f)));
+                rb.AddForce(new Vector2(Random.Range(-100f, 100f), Random.Range(300f, 500f)));
+                //TODO: 给它加一个旋转的力
+                //rb.AddTorque(Random.Range(-100f, 100f), ForceMode2D.Impulse);
             }
             else
             {

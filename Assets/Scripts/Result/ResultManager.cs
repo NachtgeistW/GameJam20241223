@@ -12,6 +12,7 @@ namespace Result
         [SerializeField] private Text finalScoreText;
         
         [SerializeField] private Button retryButton;
+        [SerializeField] private Button exitButton;
 
         private void Start()
         {
@@ -37,6 +38,8 @@ namespace Result
                     Game.Game.Instance.gameStatus = 0;
                 }
             );
+            
+            exitButton.onClick.AddListener(Application.Quit);
         }
     }
 }
