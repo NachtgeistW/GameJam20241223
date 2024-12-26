@@ -31,6 +31,7 @@ namespace Game
         private void CalculateScore()
         {
             totalScore += plusScoreEach;
+            Game.Instance.score = totalScore;
         }
 
         private void SetScoreText()
