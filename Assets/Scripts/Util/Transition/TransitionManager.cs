@@ -19,8 +19,12 @@ namespace Transition
 
     public class TransitionManager : MonoBehaviour
     {
+#if UNITY_EDITOR
         [SceneName] public string startSceneName = string.Empty;
-        private CanvasGroup fadeCanvasGroup;
+#else
+        public string startSceneName = "Start";
+#endif
+        [SerializeField] private CanvasGroup fadeCanvasGroup;
         private bool isFade;
 
         private void OnEnable()
@@ -35,7 +39,7 @@ namespace Transition
 
         private IEnumerator Start()
         {
-            fadeCanvasGroup = FindObjectOfType<CanvasGroup>();
+            fadeCanvasGroup = GameObject.Find("Fade Canvas/Fade Panel").GetComponent<CanvasGroup>();
             yield return LoadSceneAndActivate(startSceneName);
             EventCenter.Broadcast(new AfterSceneLoadedEvent());
         }
