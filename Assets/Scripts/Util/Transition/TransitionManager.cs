@@ -12,14 +12,20 @@ namespace Transition
     public struct TransitionEvent : IEvent
     {
         public string SceneName;
+
+        public bool IsFadeEnable;
         //public Vector3 Pos;
     }
-    
+
     public class TransitionManager : MonoBehaviour
     {
-        [SceneName]
-        public string startSceneName = string.Empty;
-        private CanvasGroup fadeCanvasGroup;
+#if UNITY_EDITOR
+        [SceneName] public string startSceneName = string.Empty;
+#else
+        public string startSceneName = "Start";
+#endif
+        [SerializeField] private CanvasGroup fadeCanvasGroup;
+
         private bool isFade;
 
         private void OnEnable()
@@ -34,15 +40,22 @@ namespace Transition
 
         private IEnumerator Start()
         {
-            fadeCanvasGroup = FindObjectOfType<CanvasGroup>();
+            fadeCanvasGroup = GameObject.Find("Fade Canvas/Fade Panel").GetComponent<CanvasGroup>();
             yield return LoadSceneAndActivate(startSceneName);
             EventCenter.Broadcast(new AfterSceneLoadedEvent());
         }
 
         private void OnTransitionEvent(TransitionEvent evt)
         {
-            if (!isFade)
+            if (evt.IsFadeEnable)
+            {
+                if (!isFade)
+                    StartCoroutine(TransitionWithFade(evt.SceneName));
+            }
+            else
+            {
                 StartCoroutine(Transition(evt.SceneName));
+            }
         }
 
         /// <summary>
@@ -65,6 +78,16 @@ namespace Transition
         private IEnumerator Transition(string sceneName)
         {
             //EventCenter.Broadcast(new BeforeSceneLoadedEvent());
+            yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+
+            yield return LoadSceneAndActivate(sceneName);
+            //EventHandler.CallMoveToPositionEvent(targetPos);
+            //EventCenter.Broadcast(new AfterSceneLoadedEvent());
+        }
+
+        private IEnumerator TransitionWithFade(string sceneName)
+        {
+            //EventCenter.Broadcast(new BeforeSceneLoadedEvent());
             yield return Fade(1);
             yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
 
@@ -83,7 +106,7 @@ namespace Transition
         {
             isFade = true;
             fadeCanvasGroup.blocksRaycasts = true;
-            
+
             //TODO: replace with DOTween
             var speed = Mathf.Abs(fadeCanvasGroup.alpha - targetAlpha) / Settings.SceneFadeDuration;
             while (!Mathf.Approximately(fadeCanvasGroup.alpha, targetAlpha))
@@ -91,7 +114,7 @@ namespace Transition
                 fadeCanvasGroup.alpha = Mathf.MoveTowards(fadeCanvasGroup.alpha, targetAlpha, speed * Time.deltaTime);
                 yield return null;
             }
-            
+
             fadeCanvasGroup.blocksRaycasts = false;
             isFade = false;
         }
