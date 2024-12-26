@@ -10,17 +10,19 @@ namespace Start
     {
         [SerializeField] private Button startButton;
         [SerializeField] private Button exitButton;
-        
+
         private void Start()
         {
             startButton.onClick.AddListener(() =>
-                EventCenter.Broadcast(new TransitionEvent
                 {
-                    SceneName = "Game",
-                    IsFadeEnable = true
-                })
+                    EventCenter.Broadcast(new TransitionEvent
+                    {
+                        SceneName = "Game",
+                        IsFadeEnable = true
+                    });
+                }
             );
-            
+
             exitButton.onClick.AddListener(Application.Quit);
         }
     }
