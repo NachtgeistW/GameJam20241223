@@ -980,6 +980,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   studentTransform: {fileID: 3796832656193554116}
+  bottomPart: {fileID: 1870409167024524574}
+  middlePart: {fileID: 6188136677490758937}
+  topPart: {fileID: 591415160878667249}
   speed: 3
 --- !u!114 &1832643829431920591
 MonoBehaviour:
