@@ -561,6 +561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Student
       objectReference: {fileID: 0}
+    - target: {fileID: 8364493936832872020, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

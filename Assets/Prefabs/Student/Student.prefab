@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 417859756901891649}
   - component: {fileID: 600901102860875996}
   m_Layer: 6
-  m_Name: Bottom
+  m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -460,8 +460,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8374758922661621227}
+  - component: {fileID: 4335191076510345199}
   m_Layer: 6
-  m_Name: Top
+  m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -484,6 +485,33 @@ Transform:
   - {fileID: 7442073323314686896}
   m_Father: {fileID: 3292170318988175293}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &4335191076510345199
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6074228227230809388}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6512449297591365194
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,7 +994,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   studentTransform: {fileID: 3796832656193554116}
-  originalHairTransform: {fileID: 912862508594824500}
+  originalHair: {fileID: 931243994537161039}
+  cutHair: {fileID: 1033345781231911030}
+  upCutHairTransform: {fileID: 8374758922661621227}
+  downCutHairTransform: {fileID: 417859756901891649}
 --- !u!1 &8572901061562630937
 GameObject:
   m_ObjectHideFlags: 0
