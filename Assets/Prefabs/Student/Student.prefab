@@ -1001,6 +1001,10 @@ MonoBehaviour:
   cutHair: {fileID: 1033345781231911030}
   upCutHairTransform: {fileID: 8374758922661621227}
   downCutHairTransform: {fileID: 417859756901891649}
+  topSprite: {fileID: 6876873126557807147}
+  middleBottomSprite: {fileID: 4779055784878785778}
+  topMiddleSprite: {fileID: 3804417873419990917}
+  bottomSprite: {fileID: 8306889378136232316}
 --- !u!1 &8572901061562630937
 GameObject:
   m_ObjectHideFlags: 0

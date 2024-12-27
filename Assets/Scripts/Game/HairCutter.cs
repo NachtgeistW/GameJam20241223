@@ -77,7 +77,7 @@ namespace Game
             var hit = Physics2D.Raycast(startCutPoint, cutDirection.normalized, cutDirection.magnitude);
             if (hit.collider)
             {
-                Debug.Log(hit.collider.gameObject.name);
+                //Debug.Log(hit.collider.gameObject.name);
                 if (hit.collider.CompareTag("Hair"))
                 {
                     EventCenter.Broadcast(new HairCutEvent
