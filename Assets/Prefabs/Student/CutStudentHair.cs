@@ -71,6 +71,10 @@ namespace Game
                 middleBottomSprite.transform.position = new Vector3(middleBottomSprite.transform.position.x,
                     newMiddlePos,
                     middleBottomSprite.transform.position.z);
+
+                var pos = upCutHairTransform.position;
+                pos.y = pos.y + topHeight + middleHeight;
+                upCutHairTransform.position = pos;
             }
 
             void AdjustBottom(float scale)
