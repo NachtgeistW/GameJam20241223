@@ -54,8 +54,8 @@ namespace Game
         {
             var scale = hairObject.transform.localScale.y;
             
-            AdjustTop(scale * ratio);
-            AdjustBottom(scale * (1 - ratio));
+            AdjustTop(scale * (1 - ratio));
+            AdjustBottom(scale * ratio);
             return;
 
             void AdjustTop(float scale)
