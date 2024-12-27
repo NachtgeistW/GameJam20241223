@@ -7,6 +7,7 @@ namespace Game
     {
         public Vector2 cutPosition;
         public GameObject hair;
+        public float CutRatio;
     }
 
     public struct GameFailEvent : IEvent

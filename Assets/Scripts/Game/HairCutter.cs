@@ -83,7 +83,8 @@ namespace Game
                     EventCenter.Broadcast(new HairCutEvent
                     {
                         cutPosition = hit.point,
-                        hair = hit.collider.gameObject
+                        hair = hit.collider.gameObject,
+                        CutRatio = CalculateCutRatio(hit.point)
                     });
                 }
 
@@ -95,6 +96,23 @@ namespace Game
                         IsFadeEnable = false,
                         SceneName = "Result"
                     });
+                }
+                
+                float CalculateCutRatio(Vector2 cutPoint)
+                {
+                    // 获取原始sprite的边界
+                    SpriteRenderer spriteRenderer = hit.collider.GetComponent<SpriteRenderer>();
+                    Bounds spriteBounds = spriteRenderer.bounds;
+    
+                    // 计算切割点在sprite高度上的相对位置
+                    float totalHeight = spriteBounds.size.y;
+                    float cutHeight = cutPoint.y - spriteBounds.min.y;
+    
+                    // 返回切割比例（0-1之间）
+                    float ratio = cutHeight / totalHeight;
+                    Debug.Log($"Cut ratio: {ratio * 100}% from bottom");
+    
+                    return ratio;
                 }
             }
         }

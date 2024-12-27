@@ -36,31 +36,31 @@ namespace Game
         {
             var middle = originalHair.transform.GetChild(1).gameObject;
             if (middle.Equals(evt.hair.gameObject))
-                SplitHair(evt.cutPosition, evt.hair);
+                SplitHair(evt.cutPosition, evt.hair, evt.CutRatio);
         }
 
-        private void SplitHair(Vector2 cutPoint, GameObject hairObject)
+        private void SplitHair(Vector2 cutPoint, GameObject hairObject, float cutRatio)
         {
             originalHair.SetActive(false);
             cutHair.SetActive(true);
 
             var scale = hairObject.transform.localScale.y;
-            AdjustSplitPiece(scale / 2);
+            AdjustSplitPiece(cutRatio);
             
             upCutHairTransform.gameObject.GetComponent<Rigidbody2D>()
                 .AddForce(new Vector2(Random.Range(-100f, 100f), Random.Range(300f, 500f)));
         }
 
-        private void AdjustSplitPiece(float scale)
+        private void AdjustSplitPiece(float ratio)
         {
-            AdjustTop(scale);
-            AdjustBottom(scale);
+            AdjustTop(ratio);
+            AdjustBottom(1 - ratio);
             return;
 
             void AdjustTop(float scale)
             {
                 var middleScale = middleBottomSprite.gameObject.transform.localScale;
-                middleScale.y = scale;
+                middleScale.y *= scale;
                 middleBottomSprite.gameObject.transform.localScale = middleScale;
 
                 var topHeight = topSprite.bounds.size.y;
@@ -80,7 +80,7 @@ namespace Game
             void AdjustBottom(float scale)
             {
                 var middleScale = topMiddleSprite.gameObject.transform.localScale;
-                middleScale.y = scale;
+                middleScale.y *= scale;
                 topMiddleSprite.gameObject.transform.localScale = middleScale;
                 
                 var bottomHeight = bottomSprite.bounds.size.y;
