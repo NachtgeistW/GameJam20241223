@@ -93,11 +93,7 @@ namespace Game
                 if (hit.collider.CompareTag("Body"))
                 {
                     Game.Instance.gameStatus = 2;
-                    EventCenter.Broadcast(new TransitionEvent
-                    {
-                        IsFadeEnable = false,
-                        SceneName = "Result"
-                    });
+                    EventCenter.Broadcast(new GameFailEvent());
                 }
                 
                 float CalculateCutRatio(Vector2 cutPoint, out float cutHeight)
