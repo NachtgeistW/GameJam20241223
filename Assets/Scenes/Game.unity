@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 778092256}
   - component: {fileID: 778092255}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: BGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1404,6 +1404,7 @@ GameObject:
   - component: {fileID: 2098367040}
   - component: {fileID: 2098367041}
   - component: {fileID: 2098367042}
+  - component: {fileID: 2098367043}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -1440,7 +1441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   studentPrefab: {fileID: 8364493936832872020, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
   spawnPoint: {fileID: 2111265493}
-  delay: 1.5
+  delay: 1.1
 --- !u!114 &2098367039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1483,7 +1484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownText: {fileID: 272211999}
-  secondsLeft: 30
+  secondsLeft: 60
 --- !u!114 &2098367042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1498,6 +1499,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movie: {fileID: 1638380849}
   videoPlayer: {fileID: 1638380853}
+--- !u!114 &2098367043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098367036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0b8211a1194c0c80ed4dc40881de0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgm: {fileID: 778092255}
 --- !u!1 &2111265492
 GameObject:
   m_ObjectHideFlags: 0

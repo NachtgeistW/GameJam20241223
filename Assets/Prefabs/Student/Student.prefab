@@ -981,12 +981,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   studentTransform: {fileID: 3796832656193554116}
   body: {fileID: 2002361122559319385}
-  hair: {fileID: 931243994537161039}
-  cutHair: {fileID: 1033345781231911030}
   bottomPart: {fileID: 1870409167024524574}
   middlePart: {fileID: 6188136677490758937}
   topPart: {fileID: 591415160878667249}
-  speed: 3
+  speed: 7
 --- !u!114 &1832643829431920591
 MonoBehaviour:
   m_ObjectHideFlags: 0

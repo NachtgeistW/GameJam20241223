@@ -26,7 +26,7 @@ namespace Game
         private void Start()
         {
             var pos = studentTransform.position;
-            pos.y = Random.Range(-8f, 0);
+            pos.y = Random.Range(-6f, -3f);
             studentTransform.position = pos;
             
             SetHairHeight();
