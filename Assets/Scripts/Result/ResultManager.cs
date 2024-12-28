@@ -13,6 +13,8 @@ namespace Result
         
         [SerializeField] private Button retryButton;
         [SerializeField] private Button exitButton;
+        
+        [SerializeField] private AudioSource successSound;
 
         private void Start()
         {
@@ -26,6 +28,8 @@ namespace Result
             {
                 resultText.text = "游戏结束！";
                 finalScoreText.text = Game.Game.Instance.score.ToString();
+                
+                successSound.Play();
             }
             
             retryButton.onClick.AddListener(() =>

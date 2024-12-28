@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Plutono.Util;
 using Transition;
 using UnityEngine;
@@ -11,10 +12,13 @@ namespace Start
         [SerializeField] private Button startButton;
         [SerializeField] private Button exitButton;
 
+        [SerializeField] private AudioSource fx;
+
         private void Start()
         {
             startButton.onClick.AddListener(() =>
                 {
+                    fx.Play();
                     EventCenter.Broadcast(new TransitionEvent
                     {
                         SceneName = "Game",
