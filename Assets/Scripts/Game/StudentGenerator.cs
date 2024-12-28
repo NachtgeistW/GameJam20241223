@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -21,7 +22,7 @@ namespace Game
             while (true)
             {
                 Instantiate(studentPrefab, spawnPoint);
-                yield return new WaitForSeconds(delay);
+                yield return new WaitForSeconds(delay + Random.Range(-0.8f, 0.5f));
             }
         }
     }

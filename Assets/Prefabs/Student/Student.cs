@@ -12,9 +12,6 @@ namespace Game
         [FormerlySerializedAs("bodySpriteRenderer")] [Header("Body")] [SerializeField]
         private SpriteRenderer body;
 
-        [SerializeField] private GameObject hair;
-        [SerializeField] private GameObject cutHair;
-
         [Header("Hair")] [FormerlySerializedAs("bottomHairTransform")] [SerializeField]
         private SpriteRenderer bottomPart;
 
@@ -28,19 +25,9 @@ namespace Game
 
         private void Start()
         {
-            var bodyScale = body.transform.localScale;
-            var scaleRatio = Random.Range(0.5f, 1.5f);
-            bodyScale.y = scaleRatio;
-            body.transform.localScale = bodyScale;
-
-            var bodyHeight = body.bounds.size.y;
-            var hairHeight = bottomPart.bounds.size.y + middlePart.bounds.size.y + topPart.bounds.size.y -
-                             2.9f;
-
-            var bodyTopEdge = body.transform.position + Vector3.up * (bodyHeight / 2);
-            var newHairPos = bodyTopEdge + Vector3.up * (hairHeight / 2);
-            hair.transform.position = new Vector3(newHairPos.x + 0.48f, newHairPos.y, newHairPos.z);
-            cutHair.transform.position = new Vector3(newHairPos.x + 0.48f, newHairPos.y, newHairPos.z);
+            var pos = studentTransform.position;
+            pos.y = Random.Range(-8f, 0);
+            studentTransform.position = pos;
             
             SetHairHeight();
             return;
