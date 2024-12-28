@@ -85,7 +85,8 @@ namespace Game
                     {
                         hair = hit.collider.gameObject,
                         CutHeight = cutHeight,
-                        CutRatio = ratio
+                        CutRatio = ratio,
+                        EndCutPoint = endCutPoint,
                     });
                 }
 
