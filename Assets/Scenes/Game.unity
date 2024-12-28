@@ -1328,7 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownText: {fileID: 272211999}
-  secondsLeft: 10
+  secondsLeft: 30
 --- !u!114 &2098367042
 MonoBehaviour:
   m_ObjectHideFlags: 0
