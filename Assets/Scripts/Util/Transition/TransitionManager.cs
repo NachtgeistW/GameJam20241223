@@ -17,6 +17,11 @@ namespace Transition
         //public Vector3 Pos;
     }
 
+    public struct FadeEvent : IEvent
+    {
+        public float Alpha;
+    }
+
     public class TransitionManager : MonoBehaviour
     {
 #if UNITY_EDITOR

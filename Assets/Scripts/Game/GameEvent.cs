@@ -8,8 +8,14 @@ namespace Game
         public GameObject hair;
         public float CutHeight;
         public float CutRatio;
+        public Vector2 EndCutPoint;
     }
 
+    public struct GetScoreEvent : IEvent
+    {
+        public Vector2 EndCutPoint;
+    }
+    
     public struct GameFailEvent : IEvent
     {
     }

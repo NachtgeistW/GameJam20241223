@@ -26,14 +26,19 @@ namespace Game
 
         private void OnHairCut(HairCutEvent evt)
         {
-            CalculateScore(evt.CutHeight);
+            if (evt.CutHeight > minusCutHeight) return;
+            
+            CalculateScore();
             SetScoreText();
+            
+            EventCenter.Broadcast(new GetScoreEvent
+            {
+                EndCutPoint = evt.EndCutPoint,
+            });
         }
 
-        private void CalculateScore(float height)
+        private void CalculateScore()
         {
-            if (height > minusCutHeight) return;
-            
             totalScore += plusScoreEach;
             Game.Instance.score = totalScore;
         }
