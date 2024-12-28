@@ -9,7 +9,10 @@ namespace Game
     {
         [SerializeField] private Transform studentTransform;
 
-        [FormerlySerializedAs("bottomHairTransform")] [SerializeField]
+        [FormerlySerializedAs("bodySpriteRenderer")] [Header("Body")] [SerializeField]
+        private SpriteRenderer body;
+
+        [Header("Hair")] [FormerlySerializedAs("bottomHairTransform")] [SerializeField]
         private SpriteRenderer bottomPart;
 
         [FormerlySerializedAs("middleHairTransform")] [SerializeField]
@@ -22,25 +25,35 @@ namespace Game
 
         private void Start()
         {
-            var middleScale = middlePart.gameObject.transform.localScale;
-            middleScale.y = Random.Range(1f, 7f);
-            middlePart.gameObject.transform.localScale = middleScale;
+            var pos = studentTransform.position;
+            pos.y = Random.Range(-8f, 0);
+            studentTransform.position = pos;
+            
+            SetHairHeight();
+            return;
 
-            var topHeight = topPart.bounds.size.y;
-            var middleHeight = middlePart.bounds.size.y;
-            var bottomHeight = bottomPart.bounds.size.y;
+            void SetHairHeight()
+            {
+                var middleScale = middlePart.gameObject.transform.localScale;
+                middleScale.y = Random.Range(1f, 7f);
+                middlePart.gameObject.transform.localScale = middleScale;
 
-            // 计算中间部分的新位置
-            var bottomTopEdge = bottomPart.transform.position + Vector3.up * (bottomHeight / 2);
-            var newMiddlePosition = bottomTopEdge + Vector3.up * (middleHeight / 2);
-            middlePart.transform.position = new Vector3(middlePart.transform.position.x, newMiddlePosition.y,
-                middlePart.transform.position.z);
+                var topHeight = topPart.bounds.size.y;
+                var middleHeight = middlePart.bounds.size.y;
+                var bottomHeight = bottomPart.bounds.size.y;
 
-            // 调整顶部位置
-            var middleTopEdge = middlePart.transform.position + Vector3.up * (middleHeight / 2);
-            var newTopPosition = middleTopEdge + Vector3.up * (topHeight / 2);
-            topPart.transform.position = new Vector3(topPart.transform.position.x, newTopPosition.y,
-                topPart.transform.position.z);
+                // 计算中间部分的新位置
+                var bottomTopEdge = bottomPart.transform.position + Vector3.up * (bottomHeight / 2);
+                var newMiddlePosition = bottomTopEdge + Vector3.up * (middleHeight / 2);
+                middlePart.transform.position = new Vector3(middlePart.transform.position.x, newMiddlePosition.y,
+                    middlePart.transform.position.z);
+
+                // 调整顶部位置
+                var middleTopEdge = middlePart.transform.position + Vector3.up * (middleHeight / 2);
+                var newTopPosition = middleTopEdge + Vector3.up * (topHeight / 2);
+                topPart.transform.position = new Vector3(topPart.transform.position.x, newTopPosition.y,
+                    topPart.transform.position.z);
+            }
         }
 
         private void Update()
