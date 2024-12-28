@@ -14,7 +14,7 @@ TagManager:
   - Water
   - UI
   - Student
-  - 
+  - Teacher
   - 
   - 
   - 
@@ -48,6 +48,9 @@ TagManager:
     locked: 0
   - name: Hair
     uniqueID: 1872169617
+    locked: 0
+  - name: Teacher
+    uniqueID: 4097306449
     locked: 0
   - name: CutLine
     uniqueID: 3891536089
