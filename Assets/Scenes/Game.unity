@@ -773,6 +773,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1033345781231911030, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2429213417197993024, guid: ff02c27f8bca7e8498c0b6e1ce2cfdf4, type: 3}
       propertyPath: speed
       value: 0
@@ -1379,6 +1383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1046201877}
   plusScoreEach: 10
+  minusCutHeight: 0.4
 --- !u!114 &2098367041
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 931243994537161039}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.48, y: 0, z: 0}
+  m_LocalPosition: {x: 0.48, y: 2.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -143,7 +143,7 @@ Transform:
   m_GameObject: {fileID: 1033345781231911030}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.48, y: 0, z: 0}
+  m_LocalPosition: {x: 0.48, y: 2.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -177,7 +177,7 @@ Transform:
   m_GameObject: {fileID: 3125886086841265951}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -477,7 +477,7 @@ Transform:
   m_GameObject: {fileID: 6074228227230809388}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.14, z: 0}
+  m_LocalPosition: {x: 0, y: 1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -743,7 +743,7 @@ Transform:
   m_GameObject: {fileID: 7045009431581350883}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.6430001, z: 0}
+  m_LocalPosition: {x: 0, y: 0.743, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -872,7 +872,7 @@ Transform:
   m_GameObject: {fileID: 7592111979471367567}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -980,6 +980,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   studentTransform: {fileID: 3796832656193554116}
+  body: {fileID: 2002361122559319385}
+  hair: {fileID: 931243994537161039}
+  cutHair: {fileID: 1033345781231911030}
   bottomPart: {fileID: 1870409167024524574}
   middlePart: {fileID: 6188136677490758937}
   topPart: {fileID: 591415160878667249}
@@ -1115,7 +1118,7 @@ Transform:
   m_GameObject: {fileID: 9028643517934604140}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.14, z: 0}
+  m_LocalPosition: {x: 0, y: 1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
