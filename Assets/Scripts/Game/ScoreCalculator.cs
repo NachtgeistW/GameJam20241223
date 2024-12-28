@@ -12,6 +12,8 @@ namespace Game
         private int totalScore;
         [SerializeField] private int plusScoreEach = 10;
 
+        [SerializeField] private float minusCutHeight = 0.4f;
+
         private void OnEnable()
         {
             EventCenter.AddListener<HairCutEvent>(OnHairCut);
@@ -24,12 +26,14 @@ namespace Game
 
         private void OnHairCut(HairCutEvent evt)
         {
-            CalculateScore();
+            CalculateScore(evt.CutHeight);
             SetScoreText();
         }
 
-        private void CalculateScore()
+        private void CalculateScore(float height)
         {
+            if (height > minusCutHeight) return;
+            
             totalScore += plusScoreEach;
             Game.Instance.score = totalScore;
         }

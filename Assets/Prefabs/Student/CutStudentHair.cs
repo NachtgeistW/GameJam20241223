@@ -36,10 +36,10 @@ namespace Game
         {
             var middle = originalHair.transform.GetChild(1).gameObject;
             if (middle.Equals(evt.hair.gameObject))
-                SplitHair(evt.cutPosition, evt.hair, evt.CutRatio);
+                SplitHair(evt.hair, evt.CutRatio);
         }
 
-        private void SplitHair(Vector2 cutPoint, GameObject hairObject, float cutRatio)
+        private void SplitHair(GameObject hairObject, float cutRatio)
         {
             originalHair.SetActive(false);
             cutHair.SetActive(true);

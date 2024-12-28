@@ -80,11 +80,12 @@ namespace Game
                 //Debug.Log(hit.collider.gameObject.name);
                 if (hit.collider.CompareTag("Hair"))
                 {
+                    var ratio = CalculateCutRatio(hit.point, out var cutHeight);
                     EventCenter.Broadcast(new HairCutEvent
                     {
-                        cutPosition = hit.point,
                         hair = hit.collider.gameObject,
-                        CutRatio = CalculateCutRatio(hit.point)
+                        CutHeight = cutHeight,
+                        CutRatio = ratio
                     });
                 }
 
@@ -98,7 +99,7 @@ namespace Game
                     });
                 }
                 
-                float CalculateCutRatio(Vector2 cutPoint)
+                float CalculateCutRatio(Vector2 cutPoint, out float cutHeight)
                 {
                     // 获取原始sprite的边界
                     SpriteRenderer spriteRenderer = hit.collider.GetComponent<SpriteRenderer>();
@@ -106,11 +107,10 @@ namespace Game
     
                     // 计算切割点在sprite高度上的相对位置
                     float totalHeight = spriteBounds.size.y;
-                    float cutHeight = cutPoint.y - spriteBounds.min.y;
+                    cutHeight = cutPoint.y - spriteBounds.min.y;
     
                     // 返回切割比例（0-1之间）
-                    float ratio = cutHeight / totalHeight;
-                    Debug.Log($"Cut ratio: {ratio * 100}% from bottom");
+                    var ratio = cutHeight / totalHeight;
     
                     return ratio;
                 }
