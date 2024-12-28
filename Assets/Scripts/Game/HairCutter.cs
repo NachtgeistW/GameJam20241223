@@ -77,13 +77,15 @@ namespace Game
             var hit = Physics2D.Raycast(startCutPoint, cutDirection.normalized, cutDirection.magnitude);
             if (hit.collider)
             {
-                Debug.Log(hit.collider.gameObject.name);
+                //Debug.Log(hit.collider.gameObject.name);
                 if (hit.collider.CompareTag("Hair"))
                 {
+                    var ratio = CalculateCutRatio(hit.point, out var cutHeight);
                     EventCenter.Broadcast(new HairCutEvent
                     {
-                        cutPosition = hit.point,
-                        hair = hit.collider.gameObject
+                        hair = hit.collider.gameObject,
+                        CutHeight = cutHeight,
+                        CutRatio = ratio
                     });
                 }
 
@@ -95,6 +97,22 @@ namespace Game
                         IsFadeEnable = false,
                         SceneName = "Result"
                     });
+                }
+                
+                float CalculateCutRatio(Vector2 cutPoint, out float cutHeight)
+                {
+                    // 获取原始sprite的边界
+                    SpriteRenderer spriteRenderer = hit.collider.GetComponent<SpriteRenderer>();
+                    Bounds spriteBounds = spriteRenderer.bounds;
+    
+                    // 计算切割点在sprite高度上的相对位置
+                    float totalHeight = spriteBounds.size.y;
+                    cutHeight = cutPoint.y - spriteBounds.min.y;
+    
+                    // 返回切割比例（0-1之间）
+                    var ratio = cutHeight / totalHeight;
+    
+                    return ratio;
                 }
             }
         }
